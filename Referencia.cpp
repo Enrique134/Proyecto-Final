@@ -83,7 +83,7 @@ void iLibro(){
 		cin.getline(libros.nombre, sizeof(libros.nombre));
 		cout<<"\n\tNombre del Autor: ";
 		cin.getline(libros.autor, sizeof(libros.autor));
-		cout<<"\n\tAño de Edicion: ";
+		cout<<"\n\tAÃ±o de Edicion: ";
 		cin>>libros.edicion;
 		fwrite(&libros, sizeof(libros),1,fp);
 		fclose(fp);
@@ -107,7 +107,7 @@ void sLibro() {
     while (fread(&libros, sizeof(libros), 1, fp) == 1) {
         cout << "\nNombre del libro: " << libros.nombre;
         cout << "\nNombre del autor: " << libros.autor;
-        cout << "\nAño de Edicion: " << libros.edicion;
+        cout << "\nAÃ±o de Edicion: " << libros.edicion;
         cout << "\n\n";
     }
     fclose(fp);
@@ -137,7 +137,7 @@ void uLibro(){
 			cin.getline(libros.nombre, sizeof(libros.nombre));
 			cout<<"\n\tNuevo Autor: ";
 			cin.getline(libros.autor, sizeof(libros.autor));
-			cout<<"\n\tAño de Edicion: ";
+			cout<<"\n\tAÃ±o de Edicion: ";
 			cin>>libros.edicion;
 		}
 		fwrite(&libros, sizeof(libros),1, tempFile);	
