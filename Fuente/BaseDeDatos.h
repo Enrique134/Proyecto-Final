@@ -1,16 +1,27 @@
-const string UBICACIÓN_DEL_CONTENEDOR = "Datos";
-
+// Librería Base De Datos
+//@Autor Enrique Sosa
 
 #include <map>
 #include <stdio.h>
 
 using namespace std;
 
-map<string, FILE*> Almacén = {};
+// contenedor para las ubicaciónes de los archivos de datos
+map<string, string> BaseDeDatos = {
+  {"DatosDeContactos", "Datos/DatosDeContactos"}
+};
 
 namespace base_de_datos {
 
-void GuardarContacto() {
+enum BaseDeDatos = {
+  
+};
+
+void GuardarContacto(enum BaseDeDatos, ) {
+  
+}
+
+void Inicializar() {
   
 }
 
