@@ -8,10 +8,6 @@
 
 using namespace std;
 
-// contenedor para las ubicaciónes de los archivos de almacenamiento
-
-BaseDePatiosParaLosDatos
-
 map<string, string> BaseDeDatos = {
   {"DatosDeContactos", "datos/datos_de_contactos"},
   {"índices", "datos/índices"}
@@ -25,11 +21,11 @@ class Índice {
 
 static void guardarÍndice(string identificador, int índice) {
   FILE* índices = fopen(BaseDeDatos.at("Índices", ""));
-  fwrite(índice, sizeof(índice), índices);
+  fwrite(índice, sizeof(índice), 1, índices);
 }
 
 static void quitarÍndice() {
-
+  
 }
 
 static Índice* buscarÍndice(string identificador) {
@@ -87,7 +83,7 @@ void actualizar(string identificador) {
 }
 
 void eliminar(string identificador) {
-  
+
 }
 
 }
