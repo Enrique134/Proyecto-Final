@@ -15,6 +15,14 @@ map<string, string> BaseDeDatos = {
   {"índices", "datos/índices"}
 };
 
+int buscarÍndice() {
+  FILE* índices = fopen(BaseDeDatos.at("Índices", "r"));
+
+  for(int i = 0; i <; i++) {
+    
+  }
+}
+
 namespace base_de_datos {
 
 enum Almacenes = {
@@ -36,11 +44,24 @@ void guardar(Almacenes almacen, string identificador, Clase datos) {
   }
 
   FILE* archivo = fopen(ubicación, "a");
-  fwrite(datos)
+  FILE* índices = fopen(base_de_datos.at("índices"), "a");
+
+  int tamañoDelArchivo = sizeof(archivo);
+
+  fwrite(&identificador, sizeof(string), 1, índices);
+  fwrite(tamañoDelArchivo, sizeof(int), 1, índices);
+  fwrite(&datos, sizeof(datos), 1, archivo);
+
+  fclose(archivo);
+  fclose(índices);
 }
 
 void actualizar(string identificador) {
   
+}
+
+void eliminar(string identificador) {
+
 }
 
 }
