@@ -11,7 +11,8 @@ using namespace std;
 BaseDePatiosParaLosDatos
 
 map<string, string> BaseDeDatos = {
-  {"DatosDeContactos", "datos/datos_de_contactos"}
+  {"DatosDeContactos", "datos/datos_de_contactos"},
+  {"índices", "datos/índices"}
 };
 
 namespace base_de_datos {
