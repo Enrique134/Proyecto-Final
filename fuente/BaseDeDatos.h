@@ -18,7 +18,7 @@ map<string, string> BaseDeDatos = {
 int buscarÍndice() {
   FILE* índices = fopen(BaseDeDatos.at("Índices", "r"));
 
-  for(int i = 0; i <; i++) {
+  for(int i = 0; i < sizeof(índices); i++) {
     
   }
 }
