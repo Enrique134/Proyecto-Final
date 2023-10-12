@@ -2,7 +2,9 @@
 //@Autor Enrique Sosa
 
 #include <map>
+
 #include <stdio.h>
+#include <string.h>
 
 using namespace std;
 
@@ -15,11 +17,35 @@ map<string, string> BaseDeDatos = {
   {"índices", "datos/índices"}
 };
 
-int buscarÍndice() {
+class Índice {
+  string identificador;
+  int posición[2];
+};
+
+
+static void guardarÍndice(string identificador, int índice) {
+  FILE* índices = fopen(BaseDeDatos.at("Índices", ""));
+  fwrite(índice, sizeof(índice), índices);
+}
+
+static void quitarÍndice() {
+
+}
+
+static Índice* buscarÍndice(string identificador) {
   FILE* índices = fopen(BaseDeDatos.at("Índices", "r"));
 
-  for(int i = 0; i < sizeof(índices); i++) {
-    
+  int posición = 0; static Índice índice;
+  while(posición < sizeof(índices)) 
+  {
+    fread(&índice, sizeof(índice), 1, índices);
+
+    if(strcmp(índice.identificador, identificador) == 0) {
+      return índice;
+    }
+
+    posición += sizeof(índice);
+    fseek(índices, posición, SEEK_SET);
   }
 }
 
@@ -35,7 +61,7 @@ void guardar(Almacenes almacen, string identificador, Clase datos) {
 
   switch(almacen)
   {
-    case Almacenes.DatosDeContactos:
+    case DatosDeContactos:
       ubicación = BaseDeDatos.at("DatosDeContactos");
       break;
     
@@ -61,7 +87,7 @@ void actualizar(string identificador) {
 }
 
 void eliminar(string identificador) {
-
+  
 }
 
 }
