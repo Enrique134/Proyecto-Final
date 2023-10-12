@@ -4,7 +4,7 @@ class Contacto {
 
 };
 
-Contacto* nuevo() {
+Contacto* Crear() {
   Contacto nuevoContacto;
   
   return &nuevoContacto
