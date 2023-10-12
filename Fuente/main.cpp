@@ -1,5 +1,5 @@
 #include "BaseDeDatos.h"
-#include "Contactos.h"
+#include "contactos.h"
 
 int main() {
   return 0;
