@@ -1,4 +1,4 @@
-// Librería Base De Datos
+//Librería Base De Datos
 //@Autor Enrique Sosa
 
 #include <map>
@@ -14,16 +14,16 @@ map<string, string> BaseDeDatos = {
 namespace base_de_datos {
 
 enum Almacenes = {
-  datos_de_contactos,
+  DatosDeContactos,
 };
 
-template T<Tipo>
-void guardar(Almacenes almacen, Tipo datos) {
+template T<Clase>
+void guardar(Almacenes almacen, Clase datos) {
   string ubicación; // ubicación para el archivo de almacenamiento de datos
 
   switch(almacen)
   {
-    case Almacenes.datos_de_contactos:
+    case Almacenes.DatosDeContactos:
       ubicación = BaseDeDatos.at("DatosDeContactos");
       break;
 
