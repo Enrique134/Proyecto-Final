@@ -1,5 +1,5 @@
 # Proyecto-Final
-Proyecto Final, 4to Bachillerato Gamma
+Proyecto Final, 4to Bachillerato Gamma.
 
 **Colaboradores**:
 - Cristian Gabriel
