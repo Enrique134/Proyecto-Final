@@ -181,7 +181,7 @@ void EditarContactos() {
 
 		} else {
 			printf("Editar Contactos\n");
-			printf("\nno pudimos encontrar el correo \"%s\" dentro de tus contactos... ", correo)
+			printf("\nno pudimos encontrar el correo \"%s\" dentro de tus contactos... ", correo);
 		}
 
 		system("cls");
