@@ -155,7 +155,7 @@ namespace base_de_datos
     return contacto;
   }
 
-  void siguiente(int indice) {
+  Contacto siguiente(int indice) {
     FILE* archivo = fopen(BaseDeDatos.at("DatosDeContactos"), "r");
     Contacto contacto;
 
