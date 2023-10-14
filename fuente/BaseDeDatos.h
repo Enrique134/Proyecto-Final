@@ -159,7 +159,7 @@ namespace base_de_datos
     FILE* archivo = fopen(BaseDeDatos.at("DatosDeContactos"), "r");
     Contacto contacto;
 
-    int _indice = indice * sizeof(contacto);
+    int _indice = indice * sizeof(Contacto);
 
     if(_indice >= sizeof(archivo)) {
       _indice -= sizeof(archivo);

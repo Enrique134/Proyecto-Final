@@ -21,7 +21,7 @@ class Contacto
 
   public:
     Contacto(string nombre, string apellido, string telefono, string correo) : nombre(nombre), apellido(apellido), telefono(telefono), correo(correo) {
-      base_de_datos();
+      base_de_datos::guardar(correo, this);
     }
 
     void actualizar(string nombre = nombre, string apellido = apellido, string telefono = telefono, string correo = correo) {
@@ -31,10 +31,6 @@ class Contacto
       correo = correo;
       base_de_datos::actualizar(identificador, this);
     }
-
-    void eliminar() {
-      base_de_datos::eliminar(identificador);
-    }
     
     void imprimir() {
         printf("\nnombre:%s\napellido:%s\nteléfono:%s\ncorreo:%s\n", nombre, apellido, telefono, correo);
@@ -42,15 +38,22 @@ class Contacto
 };
 
 namespace contactos {
-  Contacto crear(string nombre, string apellido, string telefono, string correo) {
-    Contacto nuevoContacto(nombre, apellido, telefono, correo);
-    return nuevoContacto;
+  Contacto* crear(string nombre, string apellido, string telefono, string correo) {
+    Contacto* nuevoContacto = new Contacto(nombre, apellido, telefono, correo);
+    return &nuevoContacto;
+  }
+
+  void eliminar(Contacto contacto) {
+    base_de_datos::eliminar(contacto.identificador);
   }
 
   void listar() {
-    do {
-
-    } while 
+    Contacto primerContacto = base_de_datos::siguiente(0);
+    contacto contacto, int indice;
+    while(strcmp(primerContacto.identificador, contacto.identificador) != 0) {
+      indice++;
+      contacto = base_de_datos::siguiente(indice);
+      contacto.imprimir();
+    }
   }
-
 }
