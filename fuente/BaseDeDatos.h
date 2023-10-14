@@ -37,7 +37,7 @@ static void guardarIndice(string identificador, int posicion[2]) {
   indice.posicion[0] = posicion[0];
   indice.posicion[1] = posicion[1];
 
-  fwrite(indice, sizeof(indice), 1, indices);
+  fwrite(indice, sizeof(Indice), 1, indices);
   fclose(indices);
 }
 
@@ -45,24 +45,24 @@ static void quitarIndice(string identificador) {
   FILE* indices = fopen(BaseDeDatos.at("Indices", "r+"));
   Indice ultimoIndice;
 
-  fseek(indices, sizeof(indices) - sizeof(ultimoIndice), SEEK_SET);
-  fread(&ultimoIndice, sizeof(ultimoIndice), 1, indices);
-  fwrite(NULL, sizeof(ultimoIndice), 1, indices);
+  fseek(indices, sizeof(indices) - sizeof(Indice), SEEK_SET);
+  fread(&ultimoIndice, sizeof(Indice), 1, indices);
+  fwrite(NULL, sizeof(Indice), 1, indices);
   rewind(indices);
 
   Indice indice;
   int posicion = 0; 
 
   while (posicion < sizeof(indices)) {
-    fread(&indice, sizeof(indice), 1, indices);
+    fread(&indice, sizeof(Indice), 1, indices);
 
     if(strcmp(indice.identificador, identificador) == 0) {
-      fwrite(ultimoIndice, sizeof(ultimoIndice), 1, indices);
+      fwrite(ultimoIndice, sizeof(Indice), 1, indices);
       fclose(indices);
       return;
     }
 
-    posicion += sizeof(indice);
+    posicion += sizeof(Indice);
     fseek(indices, posicion, SEEK_SET);
   }
 }
@@ -74,15 +74,15 @@ static actualizarIndice(string identificador, Indice nuevoIndice) {
   int posicion = 0; 
 
   while (posicion < sizeof(indices)) {
-    fread(&indice, sizeof(indice), 1, indices);
+    fread(&indice, sizeof(Indice), 1, indices);
 
     if(strcmp(indice.identificador, identificador) == 0) {
-      fwrite(nuevoIndice, sizeof(nuevoIndice), 1, indices);
+      fwrite(nuevoIndice, sizeof(Indice), 1, indices);
       fclose(indices);
       return;
     }
 
-    posicion += sizeof(indice);
+    posicion += sizeof(Indice);
     fseek(indices, posicion, SEEK_SET);
   }
 }
@@ -94,14 +94,14 @@ static Indice* obtenerIndice(string identificador) {
   int posicion = 0; 
 
   while (posicion < sizeof(indices)) {
-    fread(&indice, sizeof(indice), 1, indices);
+    fread(&indice, sizeof(Indice), 1, indices);
 
     if(strcmp(indice.identificador, identificador) == 0) {
       fclose(indices);
       return indice;
     }
 
-    posicion += sizeof(indice);
+    posicion += sizeof(Indice);
     fseek(indices, posicion, SEEK_SET);
   }
 }
@@ -109,11 +109,11 @@ static Indice* obtenerIndice(string identificador) {
 namespace base_de_datos 
 {
   void guardar(string identificador, Contacto contacto) {
-    int posicion[2] = {sizeof(archivo), sizeof(archivo) + sizeof(contacto)}
+    int posicion[2] = {sizeof(archivo), sizeof(archivo) + sizeof(Contacto)}
     guardarindice(identificador, posicion);
 
     FILE* archivo = fopen(BaseDeDatos.at("DatosDeContactos"), "a");
-    fwrite(contacto, sizeof(contacto), 1, archivo);
+    fwrite(contacto, sizeof(Contacto), 1, archivo);
 
     fclose(archivo);
   }
@@ -127,7 +127,7 @@ namespace base_de_datos
     fread(&ultimoContacto, sizeof(Contacto), 1, archivo);
     fwrite(NULL, sizeof(Contacto), 1, archivo);
     fseek(archivo, indice.posicion[0], SEEK_SET);
-    fwrite(ultimoContacto, sizeof(Contactos), 1, archivo);
+    fwrite(ultimoContacto, sizeof(Contacto), 1, archivo);
     quitarIndice(identificador);
 
     fclose(archivo);
@@ -138,7 +138,7 @@ namespace base_de_datos
     Indice indice = obtenerIndice(identificador);
 
     fseek(archivo, indice.posicion[0], SEEK_SET);
-    fwrite(datosNuevos, sizeof(datosNuevos), 1, archivo);
+    fwrite(datosNuevos, sizeof(Contacto), 1, archivo);
 
     fclose(archivo);
   }
@@ -172,5 +172,7 @@ namespace base_de_datos
     return contacto;
   }
 }
+
+
 
 

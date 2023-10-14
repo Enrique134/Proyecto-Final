@@ -1,4 +1,4 @@
-//Librería Contactos
+// Modulo de Contactos
 
 #include "BaseDeDatos.h"
 
@@ -15,15 +15,15 @@ class Contacto
   private:
     string nombre;
     string apellido;
-    string teléfono;
+    string telefono;
     string correo;
     string identificador;
 
   public:
-    Contacto(string nombre, string apellido, string teléfono, string correo) : nombre(nombre), telefono(teléfono), apellido(apellido) {}
+    Contacto(string nombre, string apellido, string telefono, string correo) : nombre(nombre), telefono(telefono), apellido(apellido) {}
 
-    void actualizar() {
-      base_de_datos::actualizar
+    void actualizar(string nombre = nombre, string apellido = apellido, string telefono = telefono) {
+      base_de_datos::actualizar(iden);
     }
 
     void eliminar() {
@@ -31,7 +31,7 @@ class Contacto
     }
     
     void imprimir() {
-        printf("\nnombre:%s\napellido:%s\nteléfono:%s\ncorreo:%s\n", nombre, apellido, teléfono);
+        printf("\nnombre:%s\napellido:%s\nteléfono:%s\ncorreo:%s\n", nombre, apellido, telefono);
     }
 };
 
