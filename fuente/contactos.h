@@ -6,33 +6,47 @@
 #include <string>
 #include <vector>
 
+#include <stdio.h>
+
 using namespace std;
 
 class Contacto 
 {
   private:
     string nombre;
-    string telefono;
+    string apellido;
+    string teléfono;
+    string correo;
+    string identificador;
 
   public:
-    Contacto(string& nombre, string& telefono) : nombre(nombre), telefono(telefono) {}
+    Contacto(string nombre, string apellido, string teléfono, string correo) : nombre(nombre), telefono(teléfono), apellido(apellido) {}
+
+    void actualizar() {
+      base_de_datos::actualizar
+    }
 
     void eliminar() {
       
     }
     
     void imprimir() {
-        cout << "Nombre: " << nombre << ", Teléfono: " << telefono << endl;
+        printf("\nnombre:%s\napellido:%s\nteléfono:%s\ncorreo:%s\n", nombre, apellido, teléfono);
     }
 };
 
 namespace contactos {
   Contacto* crear() {
+    Contacto nuevoContacto();
 
   }
 
   void actualizar(Contacto* contacto) {
     
+  }
+
+  void listar() {
+
   }
 
 }

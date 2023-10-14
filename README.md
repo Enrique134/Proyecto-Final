@@ -4,7 +4,7 @@ Proyecto Final, 4to Bachillerato Gamma.
 **Colaboradores**:
 - Cristian Gabriel
 - José Posadas
-- Luis Aragon
+- Luis Godoy
 - Enrique Sosa
 
 Centro de contactos con un sistema de guardado de datos utilizando la librería stdio.h.
