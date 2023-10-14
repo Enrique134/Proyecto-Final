@@ -111,7 +111,7 @@ namespace base_de_datos
   void guardar(string identificador, Contacto contacto) {
     int posicion[2] = {sizeof(archivo), sizeof(archivo) + sizeof(Contacto)}
     guardarindice(identificador, posicion);
-
+    
     FILE* archivo = fopen(BaseDeDatos.at("DatosDeContactos"), "a");
     fwrite(contacto, sizeof(Contacto), 1, archivo);
 

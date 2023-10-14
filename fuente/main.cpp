@@ -11,50 +11,50 @@ int main()
 {
   int opc;
 
-  cout<<"\n\n\n\t\tBienvenido";
+	cout<<"\n\n\n\t\tBienvenido";
 	cout<<"\n\n\n\t\tENTER para ingresar ";
 	getch();
 	system("cls");
   
-  do{	
-    cout<<"\n\n\t\tContactos";
-  	cout<<"\n\n\t1. Agregar nuevos contactos";
+  	do{
+    	cout<<"\n\n\t\tContactos";
+  		cout<<"\n\n\t1. Agregar nuevos contactos";
 		cout<<"\n\n\t3. Lista de contactos";
-    cout<<"\n\n\t2. Buscar contactos";
+	    cout<<"\n\n\t2. Buscar contactos";
 		cout<<"\n\n\t4. Editar contactos";
-	  cout<<"\n\n\t5. Eliminar contactos";
-	  cout<<"\n\n\t6. Salir";
-	  cout<<"\n\n\tElija una opcion: ";
-	  cin>>opc;
-	  ///funcionalidad del menu
-	  switch(opc){
-  		case 1:
-		  //llamada a la funcion de agregar contactos
+	  	cout<<"\n\n\t5. Eliminar contactos";
+		cout<<"\n\n\t6. Salir";
+	 	cout<<"\n\n\tElija una opcion: ";
+	 	cin>>opc;
+	  	///funcionalidad del menu
+	  	switch(opc){
+  			case 1: //llamada a la funcion de agregar contactos
+			agregarContactos();
 			getch();
 			system("cls");
 			break;
 		 
-		  case 2:
-		  //llamada a la funcion de listar contactos 
+			case 2: //llamada a la funcion de listar contactos 
+			listarContactos();
 			getch();
 			system("cls");
 			break;
 		
-		  case 3:
-	    //llamada a la funcion de buscar contactos		 
+		  	case 3: //llamada a la funcion de buscar contactos
+			buscarContactos();
 			getch();
 			system("cls");
 			break;
 			
-			case 4:
-			//llamada a la funcion de editar contactos
+			case 4: //llamada a la funcion de editar contactos
+			editarContactos();
 			getch();
 			system("cls");
 			break;
 				
 			
-			case 5:
-			//llamada a la funcion de eliminar contactos
+			case 5: //llamada a la funcion de eliminar contactos
+			eliminarContactos();
 			getch();
 			system("cls");
 			break;
@@ -65,7 +65,7 @@ int main()
 }
 
 //funcion para registro de contactos
-void //agregar funcion para registrar contactos//(){
+void registrarContactos(){
 	char s; //variable para finalizar el ingreso de los contactos
 	FILE *fp; ///variable que solo maneja archivos
 	do{
@@ -84,14 +84,12 @@ void //agregar funcion para registrar contactos//(){
 		
 		cout<<"\n\n\n\t\tIngrese un 1 para registrar otro contacto, 0 para salir ";
 		cin>>s;
-				
-		
 	}while(s != '0');
 	
 }
 
 //funcion para imprimir los contactos
-void //agregar funcion para imprimir los contactos//() {
+void imprimirContactos() {
     FILE *fp;
     fp = fopen("Contactos.txt", "r+b");
     system("cls");
@@ -109,7 +107,7 @@ void //agregar funcion para imprimir los contactos//() {
 }
 
 ////funcion para actualizar los datos del contacto
-void //agregar funcion para actualizar los datos(){
+void actualizarDatos(){
 	char buscarnombre[30];
 	bool encontrado = false;
 	FILE *fp;
@@ -148,39 +146,12 @@ void //agregar funcion para actualizar los datos(){
 	}
 }
 
+// funcion para agregar contactos
+void agregarContactos() {
+
+}
+
 //funcion para eliminar ante comentarios
-void //agregar funcion para eliminar contactos(){
-    char buscarnombre[30];
-    bool encontrado = false;
-    FILE *fp;
-    FILE *tempFile;
+void eliminarContactos() {
     
-    system("cls");
-    cout<<"\n\n\n\t\tEliminar un contacto\n";
-    cout<<"\n\tIngrese el nombre del contacto a eliminar: ";
-    cin.ignore();
-    cin.getline(buscarnombre,sizeof(buscarnombre));
-    
-    fp = fopen("Contactos.txt","r+b");
-    tempFile = fopen("tempContactos.txt","w+b");
-    
-    while (fread(&//funcion de nombre de contacto//,sizeof(//funcion de nombre de contacto//),1,fp)==1) {
-        if(strcmp(//funcion de nombre de los contactos//,buscarnombre)==0) {
-            encontrado=true;
-            cout<<"\n\tContacto Eliminado";
-        } else {
-            fwrite(&//funcion de nombre de contacto//,sizeof(//funcion de nombre de contacto//),1,tempFile);
-        }
-    }
-    
-    fclose(fp);
-    fclose(tempFile);
-    
-    if(encontrado==true) {
-        remove("Contactos.txt");
-        rename("tempContactos.txt", "Contactos.txt");
-        cout<<"\n\tDatos fueron eliminados....";
-    }else {
-        cout<<"\n\tDatos no fueron eliminados :o ....";
-    }
 }
