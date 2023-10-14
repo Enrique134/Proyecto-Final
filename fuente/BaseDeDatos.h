@@ -1,13 +1,13 @@
 // Libreria Base De Datos
 //@autor Enrique Sosa
-/*____________________________
- | 'una base de datos simple y| 
- |  deficiente :)'            |
- |----------------------------|
- | /!\ no es adaptable a      |
- | otros algoritmos ya que su |
- | implementacion es manual   |
- |____________________________|
+/*_____________________________
+ | 'una base de datos simple y | 
+ |  deficiente :)'             |
+ |-----------------------------|
+ | /!\ no es adaptable a otros |
+ | algoritmos ya que su        |
+ | implementacion es manual    |
+ |_____________________________|
 */
 
 #include <map>
