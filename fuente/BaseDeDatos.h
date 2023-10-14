@@ -24,6 +24,8 @@ static class Indice {
   int posicion[2];
 };
 
+Indice indiceNulo;
+
 static map<string, string> BaseDeDatos = {
   {"DatosDeContactos", "datos/datos_de_contactos"},
   {"indices", "datos/indices"}
@@ -87,7 +89,7 @@ static actualizarIndice(string identificador, Indice nuevoIndice) {
   }
 }
 
-static Indice* obtenerIndice(string identificador) {
+static Indice obtenerIndice(string identificador) {
   FILE* indices = fopen(BaseDeDatos.at("Indices", "r"));
 
   static Indice indice;
@@ -155,7 +157,7 @@ namespace base_de_datos
     return contacto;
   }
 
-  Contacto siguiente(int indice) {
+  Contacto obtenerPorIndice(int indice) {
     FILE* archivo = fopen(BaseDeDatos.at("DatosDeContactos"), "r");
     Contacto contacto;
 
@@ -170,6 +172,16 @@ namespace base_de_datos
 
     fclose(archivo);
     return contacto;
+  }
+
+  bool verificarExistencia(string identificador) {
+    Indice indice = obtenerIndice(identificador);
+
+    if(indice.posicion[0] != indice.posicion[1]) {
+      return true;
+    }
+
+    return false;
   }
 }
 

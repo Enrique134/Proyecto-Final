@@ -38,9 +38,9 @@ class Contacto
 };
 
 namespace contactos {
-  Contacto* crear(string nombre, string apellido, string telefono, string correo) {
-    Contacto* nuevoContacto = new Contacto(nombre, apellido, telefono, correo);
-    return &nuevoContacto;
+  Contacto crear(string nombre, string apellido, string telefono, string correo) {
+    Contacto nuevoContacto(nombre, apellido, telefono, correo);
+    return nuevoContacto;
   }
 
   void eliminar(Contacto contacto) {
